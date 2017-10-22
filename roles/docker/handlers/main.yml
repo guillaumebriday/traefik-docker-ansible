@@ -1,0 +1,11 @@
+---
+- name: start docker
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: exec docker-compose
+  file:
+    path: /usr/local/bin/docker-compose
+    mode: '+x'

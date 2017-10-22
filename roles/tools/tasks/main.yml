@@ -1,0 +1,11 @@
+---
+- name: Install some tools
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - htop
+    - vim
+    - git
+    - curl
