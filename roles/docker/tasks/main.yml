@@ -27,3 +27,8 @@
   apt:
     name: docker-compose
     state: present
+
+- name: Add ubuntu to the docker group
+  user:
+    name: ubuntu
+    group: docker
