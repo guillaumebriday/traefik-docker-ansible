@@ -32,3 +32,15 @@
   user:
     name: ubuntu
     group: docker
+
+- name: Add the Python client for Docker
+  pip:
+    name: docker-py
+
+- name: Pull docker images
+  docker_image:
+    name: "{{ item }}"
+  with_items:
+    - nginx:latest
+    - php:7.1-fpm
+    - mysql:latest
