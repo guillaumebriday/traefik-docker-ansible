@@ -25,6 +25,60 @@ Setup your servers addresses in the ```hosts``` file, then run the playbook :
 $ ansible-playbook -i hosts playbook.yml
 ```
 
+### Example of hosts file
+
+```yaml
+# hosts
+
+[webservers]
+example.com
+
+[webservers:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+app_name=
+app_env=
+app_key=
+app_debug=
+app_log_level=
+app_url=
+
+db_connection=
+db_host=
+db_database=
+db_username=
+db_password=
+
+broadcast_driver=
+cache_driver=
+session_driver=
+queue_driver=
+
+redis_host=
+redis_password=
+redis_port=
+
+mail_driver=
+mail_host=
+mail_port=
+mail_username=
+mail_password=
+mail_encryption=
+
+pusher_app_id=
+pusher_app_key=
+pusher_app_secret=
+pusher_app_cluster=
+
+github_id=
+github_secret=
+github_url=
+
+twitter_id=
+twitter_secret=
+twitter_url=
+```
+
 ## Installing on virtual machine
 
 You can also test this Playbook on a virtual machine for some tests.
