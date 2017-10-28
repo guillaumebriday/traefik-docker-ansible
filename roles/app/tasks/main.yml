@@ -1,0 +1,21 @@
+---
+- name: Ensures /var/lib/mysql dir exists
+  file:
+    path: /var/lib/mysql
+    state: directory
+    owner: ubuntu
+    group: docker
+
+- name: Adding .env file
+  template:
+    src: ../templates/.env.j2
+    dest: /var/www/.env
+    owner: ubuntu
+    group: docker
+
+- name: Adding docker-compose.yml file
+  template:
+    src: ../templates/docker-compose.yml.j2
+    dest: /var/www/docker-compose.yml
+    owner: ubuntu
+    group: docker

@@ -3,5 +3,6 @@
   hosts: webservers
   become: yes
   roles:
+    - app
     - tools
     - docker
