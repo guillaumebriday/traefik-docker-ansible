@@ -8,6 +8,9 @@ services:
       - mysql
     volumes:
       - ./:/application
+      - /var/www/logs:/application/storage/logs
+      - /var/www/vendor:/application/vendor
+      - /var/www/uploads:/application/storage/app
 
   queue-server:
     build: .
