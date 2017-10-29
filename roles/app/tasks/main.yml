@@ -1,17 +1,17 @@
 ---
-- name: Ensures /var/lib/mysql dir exists
+- name: Ensures App dirs exist
   file:
-    path: /var/lib/mysql
+    path: "{{ item }}"
     state: directory
     owner: ubuntu
     group: docker
-
-- name: Ensures /var/www dir exists
-  file:
-    path: /var/www
-    state: directory
-    owner: ubuntu
-    group: docker
+  with_items:
+    - /var/www
+    - /var/www/logs
+    - /var/www/vendor
+    - /var/www/uploads
+    - /var/www/node_modules
+    - /var/lib/mysql
 
 - name: Adding .env file
   template:
