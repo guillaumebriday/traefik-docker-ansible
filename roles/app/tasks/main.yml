@@ -6,6 +6,13 @@
     owner: ubuntu
     group: docker
 
+- name: Ensures /var/www dir exists
+  file:
+    path: /var/www
+    state: directory
+    owner: ubuntu
+    group: docker
+
 - name: Adding .env file
   template:
     src: ../templates/.env.j2
