@@ -45,3 +45,4 @@
     - php:7.1-fpm
     - mysql:latest
     - node:latest
+    - redis:latest
