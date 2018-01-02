@@ -42,7 +42,7 @@
     name: "{{ item }}"
   with_items:
     - nginx:latest
-    - php:7.1-fpm
+    - php:7.2-fpm
     - mysql:latest
     - node:latest
     - redis:latest
