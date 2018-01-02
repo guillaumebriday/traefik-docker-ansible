@@ -13,7 +13,7 @@ services:
       - /var/www/uploads:/application/storage/app
 
   queue-server:
-    build: .
+    build: ./provisioning
     image: laravel-blog
     command: php artisan queue:work
     depends_on:
