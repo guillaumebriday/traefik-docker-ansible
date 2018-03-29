@@ -9,7 +9,9 @@
     - software-properties-common
 
 - name: Add GPG key for Docker
-  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
 
 - name: Add the Docker repository to the apt sources list
   apt_repository:
