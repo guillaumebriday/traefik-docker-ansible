@@ -1,9 +1,0 @@
----
-- name: Ensures App dirs exist
-  file:
-    path: "{{ item }}"
-    state: directory
-    owner: ubuntu
-    group: docker
-  with_items:
-    - /var/www

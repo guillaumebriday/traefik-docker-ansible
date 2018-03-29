@@ -5,5 +5,4 @@
   roles:
     - tools
     - docker
-    - app
     - traefik

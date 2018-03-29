@@ -30,14 +30,14 @@
     name: docker-compose
     state: present
 
+- name: Add the Python client for Docker
+  pip:
+    name: docker-py
+
 - name: Add ubuntu to the docker group
   user:
     name: ubuntu
     group: docker
-
-- name: Add the Python client for Docker
-  pip:
-    name: docker-py
 
 - name: Pull docker images
   docker_image:
