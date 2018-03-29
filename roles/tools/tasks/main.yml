@@ -6,6 +6,7 @@
     update_cache: yes
   with_items:
     - htop
+    - ntp
     - vim
     - git
     - curl

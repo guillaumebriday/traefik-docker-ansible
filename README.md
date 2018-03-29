@@ -15,6 +15,7 @@ This playbook is designed to install [Docker](https://www.docker.com) and a bunc
 + Vim
 + Git
 + htop
++ ntp
 + Curl
 
 ## Installing on production
