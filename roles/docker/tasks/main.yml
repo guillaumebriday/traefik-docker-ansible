@@ -48,3 +48,4 @@
     - mysql:latest
     - node:latest
     - redis:latest
+    - ruby:latest
