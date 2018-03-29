@@ -2,18 +2,18 @@
 - name: Adding traefik.toml file
   template:
     src: ../templates/traefik.toml.j2
-    dest: /var/www/traefik.toml
+    dest: /var/www/traefik/traefik.toml
     owner: ubuntu
     group: docker
 
 - name: Adding docker-compose.yml file
   template:
     src: ../templates/docker-compose.yml.j2
-    dest: /var/www/docker-compose.yml
+    dest: /var/www/traefik/docker-compose.yml
     owner: ubuntu
     group: docker
 
 - name: Start traefik
   shell: docker-compose up -d
   args:
-    chdir: /var/www
+    chdir: /var/www/traefik

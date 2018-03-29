@@ -8,8 +8,8 @@ services:
       - "8080:8080"
       - "443:443"
     volumes:
-      - ./traefik.toml:/etc/traefik/traefik.toml
-      - ./certs:/etc/traefik/certs
+      - /var/www/traefik/traefik.toml:/etc/traefik/traefik.toml
+      - /var/www/traefik/certs:/etc/traefik/certs
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     labels:
