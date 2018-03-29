@@ -43,7 +43,7 @@
   docker_image:
     name: "{{ item }}"
   with_items:
-    - nginx:latest
+    - traefik:latest
     - php:7.2-fpm
     - mysql:latest
     - node:latest

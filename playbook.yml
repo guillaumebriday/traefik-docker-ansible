@@ -6,3 +6,4 @@
     - tools
     - docker
     - app
+    - traefik
