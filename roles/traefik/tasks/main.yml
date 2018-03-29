@@ -27,6 +27,11 @@
   docker_network:
     name: web
 
+- name: Stop traefik
+  shell: docker-compose down
+  args:
+    chdir: /var/www/traefik
+
 - name: Start traefik
   shell: docker-compose up -d
   args:
