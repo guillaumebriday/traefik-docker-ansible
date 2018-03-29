@@ -7,28 +7,3 @@
     group: docker
   with_items:
     - /var/www
-    - /var/www/vendor
-    - /var/www/uploads
-    - /var/www/node_modules
-    - /var/lib/mysql
-    - /var/www/public
-    - /var/www/bootstrap/cache
-    - /var/www/storage/framework/sessions
-    - /var/www/storage/framework/views
-    - /var/www/storage/framework/cache
-    - /var/www/storage/logs
-    - /var/www/storage/app
-
-- name: Adding .env file
-  template:
-    src: ../templates/.env.j2
-    dest: /var/www/.env
-    owner: ubuntu
-    group: docker
-
-- name: Adding docker-compose.yml file
-  template:
-    src: ../templates/docker-compose.yml.j2
-    dest: /var/www/docker-compose.yml
-    owner: ubuntu
-    group: docker
