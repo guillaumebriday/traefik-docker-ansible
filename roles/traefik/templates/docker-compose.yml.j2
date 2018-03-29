@@ -7,6 +7,8 @@ services:
       - "80:80"
       - "8080:8080"
       - "443:443"
+    networks:
+      - web
     volumes:
       - /var/www/traefik/traefik.toml:/etc/traefik/traefik.toml
       - /var/www/traefik/certs:/etc/traefik/certs
@@ -17,3 +19,7 @@ services:
       - "traefik.port=8080"
       - "traefik.backend=traefik"
       - "traefik.frontend.entryPoints=http,https"
+
+networks:
+  web:
+    external: true
