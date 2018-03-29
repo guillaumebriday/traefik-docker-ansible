@@ -1,6 +1,6 @@
 # My Ansible Playbook
 
-This is my Ansible Playbook to fit with Ubuntu Xenial (16.04 LTS) servers.
+This is my Ansible Playbook to fit with Ubuntu Bionic (18.04 LTS) servers.
 
 ## Requirements
 
