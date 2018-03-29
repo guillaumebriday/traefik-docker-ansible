@@ -1,11 +1,10 @@
 version: '3'
 
 services:
-  proxy:
+  reverse-proxy:
     image: traefik
     ports:
       - "80:80"
-      - "8080:8080"
       - "443:443"
     networks:
       - web
@@ -14,11 +13,6 @@ services:
       - /var/www/traefik/certs:/etc/traefik/certs
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
-    labels:
-      - "traefik.frontend.rule=Host:traefik.cab.re"
-      - "traefik.port=8080"
-      - "traefik.backend=traefik"
-      - "traefik.frontend.entryPoints=http,https"
 
 networks:
   web:
