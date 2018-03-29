@@ -7,7 +7,6 @@
     group: docker
   with_items:
     - /var/www/traefik
-    - /var/www/traefik/certs
 
 - name: Adding traefik.toml file
   template:
