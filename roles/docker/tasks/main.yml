@@ -44,9 +44,3 @@
     name: "{{ item }}"
   with_items:
     - traefik:latest
-    - nginx:latest
-    - php:7.2-fpm
-    - mysql:latest
-    - node:latest
-    - redis:latest
-    - ruby:latest
