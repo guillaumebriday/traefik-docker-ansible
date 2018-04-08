@@ -1,6 +1,6 @@
-# My Ansible Playbook
+# Ansible : Multiple Websites with Traefik and Docker
 
-This is my Ansible Playbook to fit with Ubuntu Bionic (18.04 LTS) servers.
+This is an [Ansible](https://www.ansible.com) playbook to install multiple Websites on a single Ubuntu server with [Docker](https://www.docker.com) and [Traefik](https://traefik.io).
 
 ## Requirements
 
@@ -8,10 +8,11 @@ This is my Ansible Playbook to fit with Ubuntu Bionic (18.04 LTS) servers.
 
 ## Applications
 
-This playbook is designed to install [Docker](https://www.docker.com) and a bunch of useful tools :
+This playbook is designed to install a bunch of useful tools :
 
 + Docker
 + Docker-compose
++ Traefik
 + Vim
 + Git
 + htop
