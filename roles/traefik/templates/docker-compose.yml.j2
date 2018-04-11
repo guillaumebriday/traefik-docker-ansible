@@ -2,7 +2,7 @@ version: '3'
 
 services:
   reverse-proxy:
-    image: traefik
+    image: traefik:1.6
     container_name: traefik
     ports:
       - "80:80"
@@ -11,9 +11,11 @@ services:
       - web
     volumes:
       - /var/www/traefik/traefik.toml:/etc/traefik/traefik.toml
-      - /var/www/traefik/certs:/etc/traefik/certs
+      - /var/www/traefik/acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
+    environment:
+      - GANDIV5_API_KEY={{ gandi_api_key }}
 
 networks:
   web:
