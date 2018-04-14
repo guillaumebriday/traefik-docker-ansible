@@ -1,5 +1,5 @@
 ---
-- name: Ensures traefik dir exist
+- name: Ensures traefik dir exists
   file:
     path: "{{ traefik_dir }}"
     state: directory
