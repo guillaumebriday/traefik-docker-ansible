@@ -11,5 +11,23 @@
     - git
     - curl
     - python3-pip
+    - zsh
   notify:
     - start ntp
+
+- name: Clone oh-my-zsh repo
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
+
+- name: Adding .zshrc file
+  template:
+    src: ../templates/.zshrc.j2
+    dest: "{{ user }}/.zshrc"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+
+- name: Set zsh as default shell
+  user:
+    name: "{{ user }}"
+    shell: /bin/zsh

@@ -18,6 +18,7 @@ This playbook is designed to install a bunch of useful tools :
 + htop
 + ntp
 + Curl
++ ZSH + Oh My Zsh with "ys" theme
 
 ## Installing on production
 
