@@ -21,7 +21,9 @@ This playbook is designed to install a bunch of useful tools :
 
 ## Installing on production
 
-Setup your servers addresses in the ```hosts``` file, then run the playbook :
+Setup your variables in the ```hosts``` and the ```playbook.yml``` files.
+
+Then run the playbook :
 
 ```bash
 $ ansible-playbook -i hosts playbook.yml
