@@ -10,8 +10,8 @@ services:
     networks:
       - web
     volumes:
-      - /var/www/traefik/traefik.toml:/etc/traefik/traefik.toml
-      - /var/www/traefik/acme.json:/acme.json
+      - ./traefik.toml:/etc/traefik/traefik.toml
+      - ./acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     environment:

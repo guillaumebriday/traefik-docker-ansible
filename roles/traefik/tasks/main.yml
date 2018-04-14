@@ -1,26 +1,24 @@
 ---
 - name: Ensures traefik dir exist
   file:
-    path: "{{ item }}"
+    path: "{{ traefik_dir }}"
     state: directory
-    owner: ubuntu
-    group: docker
-  with_items:
-    - /var/www/traefik
+    owner: "{{ user }}"
+    group: "{{ group }}"
 
 - name: Adding traefik.toml file
   template:
     src: ../templates/traefik.toml.j2
-    dest: /var/www/traefik/traefik.toml
-    owner: ubuntu
-    group: docker
+    dest: "{{ traefik_dir }}/traefik.toml"
+    owner: "{{ user }}"
+    group: "{{ group }}"
 
 - name: Adding docker-compose.yml file
   template:
     src: ../templates/docker-compose.yml.j2
-    dest: /var/www/traefik/docker-compose.yml
-    owner: ubuntu
-    group: docker
+    dest: "{{ traefik_dir }}/docker-compose.yml"
+    owner: "{{ user }}"
+    group: "{{ group }}"
 
 - name: Create the web network
   docker_network:
@@ -29,9 +27,9 @@
 - name: Stop traefik
   shell: docker-compose down
   args:
-    chdir: /var/www/traefik
+    chdir: "{{ traefik_dir }}"
 
 - name: Start traefik
   shell: docker-compose up -d
   args:
-    chdir: /var/www/traefik
+    chdir: "{{ traefik_dir }}"

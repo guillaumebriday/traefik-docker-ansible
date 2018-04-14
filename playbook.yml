@@ -2,6 +2,10 @@
 - name: Provisionning webservers group
   hosts: webservers
   become: yes
+  vars:
+    user: vagrant
+    group: docker
+    traefik_dir: /var/www/traefik
   roles:
     - tools
     - docker
