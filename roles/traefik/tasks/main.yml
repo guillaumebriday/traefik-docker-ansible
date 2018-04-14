@@ -6,6 +6,14 @@
     owner: "{{ user }}"
     group: "{{ group }}"
 
+- name: Ensures traefik dir exists
+  file:
+    path: "{{ traefik_dir }}/acme.json"
+    state: touch
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    mode: 600
+
 - name: Adding traefik.toml file
   template:
     src: ../templates/traefik.toml.j2
