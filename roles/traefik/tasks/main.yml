@@ -6,7 +6,7 @@
     owner: "{{ user }}"
     group: "{{ group }}"
 
-- name: Ensures traefik dir exists
+- name: Ensures acme.json file exists
   file:
     path: "{{ traefik_dir }}/acme.json"
     state: touch
