@@ -23,9 +23,8 @@
 - name: Adding .zshrc file
   template:
     src: ../templates/.zshrc.j2
-    dest: "{{ user }}/.zshrc"
+    dest: "{{ ansible_env.HOME }}/.zshrc"
     owner: "{{ user }}"
-    group: "{{ group }}"
 
 - name: Set zsh as default shell
   user:
