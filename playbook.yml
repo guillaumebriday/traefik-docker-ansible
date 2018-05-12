@@ -6,6 +6,7 @@
     user: vagrant
     group: docker
     traefik_dir: /var/www/traefik
+    home_dir: /home/vagrant # or /root if the user is root
   roles:
     - tools
     - docker

@@ -18,12 +18,12 @@
 - name: Clone oh-my-zsh repo
   git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
+    dest: "{{ home_dir }}/.oh-my-zsh"
 
 - name: Adding .zshrc file
   template:
     src: ../templates/.zshrc.j2
-    dest: "{{ ansible_env.HOME }}/.zshrc"
+    dest: "{{ home_dir }}/.zshrc"
     owner: "{{ user }}"
 
 - name: Set zsh as default shell
