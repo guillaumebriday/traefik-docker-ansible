@@ -43,7 +43,7 @@ ansible_python_interpreter=/usr/bin/python3
 
 gandi_api_key=your-gandi-api-key
 acme_email=your@email.com
-acme_provider=example
+acme_provider=example # Comment this line to completly disable acme
 ```
 
 ## Installing on virtual machine
