@@ -160,6 +160,8 @@ watch = true
 #
 exposedbydefault = false
 
+{% if acme_provider is defined %}
+
 [acme]
 email = "{{ acme_email }}"
 storage = "acme.json"
@@ -169,3 +171,5 @@ onHostRule = true
 [acme.dnsChallenge]
 provider = "{{ acme_provider }}"
 delayBeforeCheck = 0
+
+{% endif %}
