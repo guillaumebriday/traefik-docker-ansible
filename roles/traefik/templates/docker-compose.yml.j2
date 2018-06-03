@@ -13,6 +13,11 @@ services:
       - ./traefik.toml:/etc/traefik/traefik.toml
       - ./acme.json:/acme.json
       - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.frontend.rule=Host:{{ traefik_api_url }}"
+      - "traefik.docker.network=web"
+      - "traefik.port=8080"
+      - "traefik.enable=true"
     restart: unless-stopped
     environment:
       - GANDIV5_API_KEY={{ gandi_api_key }}
