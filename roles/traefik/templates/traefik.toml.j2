@@ -34,12 +34,18 @@ defaultEntryPoints = ["http", "https"]
 # Default:
 [entryPoints]
   [entryPoints.http]
-  address = ":80"
+    address = ":80"
     [entryPoints.http.redirect]
     entryPoint = "https"
   [entryPoints.https]
-  address = ":443"
+    address = ":443"
   [entryPoints.https.tls]
+
+  [entryPoints.traefik]
+    address = ":8080"
+    [entryPoints.traefik.auth]
+      [entryPoints.traefik.auth.basic]
+        users = ["{{ traefik_api_user }}:{{ traefik_api_password | password_hash('blowfish','1234567890123456789012') }}"]
 
 ################################################################
 # Traefik logs configuration
