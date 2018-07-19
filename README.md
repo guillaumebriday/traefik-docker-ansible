@@ -32,22 +32,8 @@ $ ansible-playbook -i hosts playbook.yml
 
 ### Example of hosts file
 
-```yaml
-# hosts
-
-[webservers]
-example.com
-
-[webservers:vars]
-ansible_python_interpreter=/usr/bin/python3
-
-gandi_api_key=your-gandi-api-key
-acme_email=your@email.com
-acme_provider=example # Comment this line to completly disable acme
-
-traefik_api_url=dashboard.example.com
-traefik_api_user=vagrant
-traefik_api_password=my-secret-password
+```bash
+$ cp hosts.example hosts
 ```
 
 ## Installing on virtual machine
