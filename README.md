@@ -22,18 +22,18 @@ This playbook is designed to install a bunch of useful tools :
 
 ## Installing on production
 
-Setup your variables in the ```hosts``` and the ```playbook.yml``` files.
+Copy the hosts example file and change the values to your needs :
+
+```bash
+$ cp hosts.example hosts
+```
+
+Setup your variables in the ```playbook.yml``` file.
 
 Then run the playbook :
 
 ```bash
 $ ansible-playbook -i hosts playbook.yml
-```
-
-### Example of hosts file
-
-```bash
-$ cp hosts.example hosts
 ```
 
 ## Installing on virtual machine
