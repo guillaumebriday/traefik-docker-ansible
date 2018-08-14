@@ -21,23 +21,28 @@
     owner: "{{ user }}"
     group: "{{ group }}"
 
-- name: Adding docker-compose.yml file
-  template:
-    src: ../templates/docker-compose.yml.j2
-    dest: "{{ traefik_dir }}/docker-compose.yml"
-    owner: "{{ user }}"
-    group: "{{ group }}"
-
 - name: Create the web network
   docker_network:
     name: web
 
-- name: Stop traefik
-  shell: docker-compose down
-  args:
-    chdir: "{{ traefik_dir }}"
-
-- name: Start traefik
-  shell: docker-compose up -d
-  args:
-    chdir: "{{ traefik_dir }}"
+- name: Create the traefik container
+  docker_container:
+    name: traefik
+    image: traefik
+    restart_policy: unless-stopped
+    networks:
+      - name: web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./traefik.toml:/etc/traefik/traefik.toml
+      - ./acme.json:/acme.json
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      traefik.frontend.rule: "Host:{{ traefik_api_url }}"
+      traefik.docker.network: "web"
+      traefik.port: "8080"
+      traefik.enable: "true"
+    env:
+      GANDIV5_API_KEY: "{{ gandi_api_key }}"
