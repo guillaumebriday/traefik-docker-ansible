@@ -5,12 +5,13 @@
     state: present
     update_cache: yes
   with_items:
+    - curl
+    - git
     - htop
     - ntp
-    - vim
-    - git
-    - curl
     - python3-pip
+    - tmux
+    - vim
     - zsh
   notify:
     - start ntp

@@ -10,14 +10,15 @@ This is an [Ansible](https://www.ansible.com) playbook to install multiple Websi
 
 This playbook is designed to install a bunch of useful tools :
 
++ Curl
 + Docker
 + Docker-compose
-+ Traefik
-+ Vim
 + Git
 + htop
 + ntp
-+ Curl
++ tmux
++ Traefik
++ Vim
 + ZSH + Oh My Zsh with "ys" theme
 
 ## Installing on production
