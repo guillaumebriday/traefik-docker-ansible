@@ -36,8 +36,8 @@
       - "80:80"
       - "443:443"
     volumes:
-      - ./traefik.toml:/etc/traefik/traefik.toml
-      - ./acme.json:/acme.json
+      - "{{ traefik_dir }}/traefik.toml:/etc/traefik/traefik.toml"
+      - "{{ traefik_dir }}/acme.json:/acme.json"
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
       traefik.frontend.rule: "Host:{{ traefik_api_url }}"
@@ -46,3 +46,18 @@
       traefik.enable: "true"
     env:
       GANDIV5_API_KEY: "{{ gandi_api_key }}"
+
+- name: Create the Watchtower container
+  docker_container:
+    name: watchtower
+    image: v2tec/watchtower
+    restart_policy: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+    # Update containers every monday at 5:00 a.m.
+    command: --schedule "0 0 5 * * 1" --cleanup
+    env:
+      WATCHTOWER_NOTIFICATIONS: "{{ WATCHTOWER_NOTIFICATIONS }}"
+      WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL: "{{ WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL }}"
+      WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER: "{{ WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER }}"
