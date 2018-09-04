@@ -47,4 +47,4 @@
   docker_image:
     name: "{{ item }}"
   with_items:
-    - traefik
+    - traefik:1.7

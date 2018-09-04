@@ -166,6 +166,13 @@ watch = true
 #
 exposedbydefault = false
 
+# Define a default docker network to use for connections to all containers.
+# Can be overridden by the traefik.docker.network label.
+#
+# Optional
+#
+network = "web"
+
 {% if acme_provider is defined %}
 
 [acme]
