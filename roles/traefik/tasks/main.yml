@@ -10,16 +10,13 @@
   file:
     path: "{{ traefik_dir }}/acme.json"
     state: touch
-    owner: "{{ user }}"
-    group: "{{ group }}"
-    mode: 600
+    mode: 0600
 
 - name: Adding traefik.toml file
   template:
     src: ../templates/traefik.toml.j2
     dest: "{{ traefik_dir }}/traefik.toml"
-    owner: "{{ user }}"
-    group: "{{ group }}"
+    mode: 0600
 
 - name: Create the web network
   docker_network:
