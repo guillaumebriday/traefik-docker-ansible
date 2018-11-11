@@ -21,6 +21,11 @@
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: "{{ home_dir }}/.oh-my-zsh"
 
+- name: Clone zsh-autosuggestions repo
+  git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions
+    dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+
 - name: Adding .zshrc file
   template:
     src: ../templates/.zshrc.j2
