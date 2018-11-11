@@ -172,10 +172,13 @@ exposedbydefault = false
 email = "{{ acme_email }}"
 storage = "acme.json"
 entryPoint = "https"
-onHostRule = true
+OnHostRule = true
 
 [acme.dnsChallenge]
 provider = "{{ acme_provider }}"
 delayBeforeCheck = 0
+
+[[acme.domains]]
+  main = "*.{{ acme_domain }}"
 
 {% endif %}
