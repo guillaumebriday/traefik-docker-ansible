@@ -4,7 +4,7 @@ This is an [Ansible](https://www.ansible.com) playbook to install multiple Websi
 
 ## Requirements
 
-+ Ansible >= 2.4.0.0
++ Ansible >= 2.5
 
 ## Applications
 
@@ -19,7 +19,7 @@ This playbook is designed to install a bunch of useful tools :
 + tmux
 + Traefik
 + Vim
-+ ZSH + Oh My Zsh with "ys" theme
++ ZSH + Oh My Zsh with "ys" theme + zsh-autosuggestions plugin
 
 ## Installing on production
 
