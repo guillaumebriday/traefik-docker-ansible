@@ -37,25 +37,6 @@ Then run the playbook :
 $ ansible-playbook -i hosts playbook.yml
 ```
 
-## Installing on virtual machine
-
-You can also test this Playbook on a virtual machine for some tests.
-
-Before starting, you need to install :
-
-+ [Vagrant](https://www.vagrantup.com)
-+ [Virtualbox](https://www.virtualbox.org)
-
-Then run :
-
-```bash
-$ vagrant up
-```
-
-The default IP address is ```192.168.50.4```. You need to setup your ```hosts``` and ```~/.ssh/config``` files to give an SSH access to Ansible into your virtual machine.
-
-You could find more informations in [this article](https://guillaumebriday.fr/utiliser-la-commande-ssh-pour-entrer-dans-une-machine-vagrant) (in French).
-
 ## Contributing
 
 There is still a lot of work to do !

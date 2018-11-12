@@ -3,10 +3,10 @@
   hosts: webservers
   become: yes
   vars:
-    user: vagrant
+    user: root
     group: docker
     traefik_dir: /var/www/traefik
-    home_dir: /home/vagrant # or /root if the user is root
+    home_dir: /root
   roles:
     - tools
     - docker
