@@ -6,6 +6,7 @@
     update_cache: yes
   loop:
     - curl
+    - fail2ban
     - git
     - htop
     - ntp
@@ -15,6 +16,12 @@
     - zsh
   notify:
     - start ntp
+
+- name: Ensure fail2ban starts on a fresh reboot
+  service:
+    name: fail2ban
+    state: started
+    enabled: yes
 
 - name: Clone oh-my-zsh repo
   git:
