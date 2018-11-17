@@ -166,13 +166,10 @@ watch = true
 #
 exposedbydefault = false
 
-{% if acme_provider is defined %}
-
 [acme]
 email = "{{ acme_email }}"
 storage = "acme.json"
 entryPoint = "https"
-OnHostRule = true
 
 [acme.dnsChallenge]
 provider = "{{ acme_provider }}"
@@ -180,5 +177,4 @@ delayBeforeCheck = 0
 
 [[acme.domains]]
   main = "*.{{ acme_domain }}"
-
-{% endif %}
+  sans = ["{{ acme_domain }}"]
