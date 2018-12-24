@@ -2,6 +2,8 @@
 
 This is an [Ansible](https://www.ansible.com) playbook to install multiple Websites on a single Ubuntu server with [Docker](https://www.docker.com) and [Traefik](https://traefik.io) updated with [Watchtower](https://github.com/v2tec/watchtower).
 
+Host, Docker containers and Traefik monitoring with [Prometheus](https://prometheus.io), [Grafana](https://grafana.com), [cAdvisor](https://github.com/google/cadvisor) and [NodeExporter](https://github.com/prometheus/node_exporter)
+
 ## Requirements
 
 + Ansible >= 2.5

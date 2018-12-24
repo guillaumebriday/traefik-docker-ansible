@@ -122,6 +122,28 @@ defaultEntryPoints = ["http", "https"]
   dashboard = true
 
 ################################################################
+# Metrics definition
+################################################################
+[metrics]
+
+  # To enable Traefik to export internal metrics to Prometheus
+  [metrics.prometheus]
+
+    # Name of the related entry point
+    #
+    # Optional
+    # Default: "traefik"
+    #
+    entryPoint = "traefik"
+
+    # Buckets for latency metrics
+    #
+    # Optional
+    # Default: [0.1, 0.3, 1.2, 5]
+    #
+    buckets = [0.1, 0.3, 1.2, 5.0]
+
+################################################################
 # Ping configuration
 ################################################################
 

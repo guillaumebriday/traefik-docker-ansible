@@ -1,0 +1,29 @@
+---
+- name: Adding grafana provisioning folder
+  synchronize:
+    src: ../templates/provisioning/
+    dest: "{{ grafana_dir }}/provisioning"
+    delete: true
+
+- name: Create a grafana volume
+  docker_volume:
+    name: grafana-storage
+
+- name: Create the grafana container
+  docker_container:
+    name: grafana
+    image: grafana/grafana
+    restart_policy: unless-stopped
+    networks:
+      - name: web
+      - name: monitoring
+    volumes:
+      - "grafana-storage:/var/lib/grafana"
+      - "{{ grafana_dir }}/provisioning:/etc/grafana/provisioning"
+    env:
+      GF_USERS_ALLOW_SIGN_UP: false
+    labels:
+      traefik.frontend.rule: "Host:{{ grafana_url }}"
+      traefik.docker.network: "web"
+      traefik.port: "3000"
+      traefik.enable: "true"

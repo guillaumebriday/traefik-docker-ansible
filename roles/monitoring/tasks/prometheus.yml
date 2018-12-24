@@ -1,0 +1,16 @@
+---
+- name: Adding prometheus.yml file
+  template:
+    src: ../templates/prometheus.yml.j2
+    dest: "{{ prometheus_dir }}/prometheus.yml"
+
+- name: Create the prometheus container
+  docker_container:
+    name: prometheus
+    image: prom/prometheus
+    restart_policy: unless-stopped
+    networks:
+      - name: monitoring
+      - name: web
+    volumes:
+      - "{{ prometheus_dir }}/prometheus.yml:/etc/prometheus/prometheus.yml"

@@ -1,0 +1,21 @@
+---
+- name: Ensures dirs exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ group }}"
+  loop:
+    - "{{ prometheus_dir }}"
+    - "{{ grafana_dir }}"
+
+- name: Create the networks if needed
+  docker_network:
+    name: "{{ item }}"
+  loop:
+    - monitoring
+    - web
+
+- include_tasks: exporters.yml
+- include_tasks: prometheus.yml
+- include_tasks: grafana.yml
