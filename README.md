@@ -14,7 +14,6 @@ This playbook is designed to install a bunch of useful tools :
 
 + Curl
 + Docker
-+ Docker-compose
 + Git
 + htop
 + ntp

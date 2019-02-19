@@ -25,15 +25,6 @@
   notify:
     - start docker
 
-- name: Install Docker Compose
-  get_url:
-    url: https://github.com/docker/compose/releases/download/1.23.1/docker-compose-Linux-x86_64
-    dest: /usr/local/bin/docker-compose
-    force: true
-    owner: "{{ user }}"
-    group: "{{ group }}"
-    mode: 0755
-
 - name: Add the Python client for Docker
   pip:
     name: docker-py
