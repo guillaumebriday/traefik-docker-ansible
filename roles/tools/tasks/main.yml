@@ -28,6 +28,11 @@
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: "{{ home_dir }}/.oh-my-zsh"
 
+- name: Clone zsh-syntax-highlighting repo
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting
+    dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
 - name: Clone zsh-autosuggestions repo
   git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
