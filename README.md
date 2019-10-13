@@ -1,6 +1,6 @@
-# Ansible : Multiple Websites with Traefik and Docker
+# Ansible: Multiple applications with Traefik and Docker
 
-This is an [Ansible](https://www.ansible.com) playbook to install multiple Websites on a single Ubuntu server with [Docker](https://www.docker.com) and [Traefik](https://traefik.io) updated with [Watchtower](https://github.com/v2tec/watchtower).
+This is an [Ansible](https://www.ansible.com) playbook to install multiple applications on a single Ubuntu server with [Docker](https://www.docker.com) and [Traefik](https://traefik.io) updated with [Watchtower](https://github.com/v2tec/watchtower).
 
 Host, Docker containers and Traefik monitoring with [Prometheus](https://prometheus.io), [Grafana](https://grafana.com), [cAdvisor](https://github.com/google/cadvisor) and [NodeExporter](https://github.com/prometheus/node_exporter)
 
@@ -8,12 +8,13 @@ Host, Docker containers and Traefik monitoring with [Prometheus](https://prometh
 
 + Ansible >= 2.5
 
-## Applications
+## Tools
 
-This playbook is designed to install a bunch of useful tools :
+This playbook is designed to install a bunch of useful tools:
 
 + Curl
 + Docker
++ fail2ban
 + Git
 + htop
 + ntp
@@ -24,15 +25,15 @@ This playbook is designed to install a bunch of useful tools :
 
 ## Installing on production
 
-Copy the hosts example file and change the values to your needs :
+Copy the hosts example file and change the values to your needs:
 
 ```bash
 $ cp hosts.example hosts
 ```
 
-Setup your variables in the ```playbook.yml``` file.
+Setup your variables in the `playbook.yml` file.
 
-Then run the playbook :
+Then run the playbook:
 
 ```bash
 $ ansible-playbook -i hosts playbook.yml
