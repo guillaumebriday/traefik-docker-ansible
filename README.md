@@ -1,6 +1,6 @@
-# Ansible: Multiple applications with Traefik and Docker
+# Ansible: Multiple applications with Traefik 1.x and Docker
 
-This is an [Ansible](https://www.ansible.com) playbook to install multiple applications on a single Ubuntu server with [Docker](https://www.docker.com) and [Traefik](https://traefik.io) updated with [Watchtower](https://github.com/v2tec/watchtower).
+This is an [Ansible](https://www.ansible.com) playbook to install multiple applications on a single Ubuntu server with [Docker](https://www.docker.com) and [Traefik 1.x](https://traefik.io) updated with [Watchtower](https://github.com/v2tec/watchtower).
 
 Host, Docker containers and Traefik monitoring with [Prometheus](https://prometheus.io), [Grafana](https://grafana.com), [cAdvisor](https://github.com/google/cadvisor) and [NodeExporter](https://github.com/prometheus/node_exporter)
 
@@ -19,7 +19,7 @@ This playbook is designed to install a bunch of useful tools:
 + htop
 + ntp
 + tmux
-+ Traefik
++ Traefik 1.x
 + Vim
 + ZSH + Oh My Zsh with "ys" theme + zsh-autosuggestions plugin
 
