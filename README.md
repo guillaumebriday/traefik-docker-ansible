@@ -28,6 +28,9 @@ Then run the playbook:
 
 ```bash
 $ ansible-playbook -i hosts.ini playbook.yml
+
+# For one role only
+$ ansible-playbook -i hosts.ini playbook.yml --tags "traefik"
 ```
 
 ## Contributing
