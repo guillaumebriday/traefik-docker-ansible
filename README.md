@@ -26,7 +26,7 @@ This playbook is designed to install a bunch of useful tools:
 Copy the hosts example file and change the values to your needs:
 
 ```bash
-$ cp hosts.example hosts
+$ cp hosts.example.ini hosts.ini
 ```
 
 Setup your variables in the `playbook.yml` file.
@@ -34,7 +34,7 @@ Setup your variables in the `playbook.yml` file.
 Then run the playbook:
 
 ```bash
-$ ansible-playbook -i hosts playbook.yml
+$ ansible-playbook -i hosts.ini playbook.yml
 ```
 
 ## Contributing
