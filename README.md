@@ -33,6 +33,10 @@ $ ansible-playbook -i hosts.ini playbook.yml
 $ ansible-playbook -i hosts.ini playbook.yml --tags "traefik"
 ```
 
+### Example
+
+I use this playbook to deploy Traefik and Docker in production to host [self-hosted services](https://github.com/guillaumebriday/selfhosted-services).
+
 ## Contributing
 
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
