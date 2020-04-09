@@ -10,16 +10,9 @@ This is an [Ansible](https://www.ansible.com) playbook to install multiple appli
 
 This playbook is designed to install a bunch of useful tools:
 
-+ Curl
-+ Docker
-+ fail2ban
-+ Git
-+ htop
-+ ntp
-+ tmux
-+ Traefik 2.x
-+ Vim
-+ ZSH + Oh My Zsh with "ys" theme + zsh-autosuggestions plugin
++ [Docker](https://www.docker.com)
++ [Traefik 2.x](https://traefik.io)
++ [Watchtower](https://github.com/containrrr/watchtower)
 
 ## Installing on production
 
@@ -38,8 +31,6 @@ $ ansible-playbook -i hosts.ini playbook.yml
 ```
 
 ## Contributing
-
-There is still a lot of work to do !
 
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
 

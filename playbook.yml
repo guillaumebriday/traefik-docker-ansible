@@ -6,10 +6,7 @@
     user: root
     group: docker
     traefik_dir: /var/www/traefik
-    home_dir: /root
   roles:
-    - { role: user, tags: user }
-    - { role: tools, tags: tools }
     - { role: docker, tags: docker }
     - { role: traefik, tags: traefik }
     - { role: watchtower, tags: watchtower }

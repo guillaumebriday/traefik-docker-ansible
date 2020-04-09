@@ -1,6 +1,0 @@
----
-- name: start ntp
-  service:
-    name: ntp
-    state: started
-    enabled: true
