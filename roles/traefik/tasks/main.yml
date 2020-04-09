@@ -12,10 +12,10 @@
     state: touch
     mode: 0600
 
-- name: Adding traefik.toml file
+- name: Adding traefik.yml file
   template:
-    src: ../templates/traefik.toml.j2
-    dest: "{{ traefik_dir }}/traefik.toml"
+    src: ../templates/traefik.yml.j2
+    dest: "{{ traefik_dir }}/traefik.yml"
     mode: 0600
 
 - name: Create the web network
@@ -25,21 +25,24 @@
 - name: Create the traefik container
   docker_container:
     name: traefik
-    image: traefik:1.7
+    image: traefik:2.2
     restart_policy: unless-stopped
+    recreate: true
     networks:
       - name: web
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - "{{ traefik_dir }}/traefik.toml:/etc/traefik/traefik.toml"
+      - "{{ traefik_dir }}/traefik.yml:/etc/traefik/traefik.yml"
       - "{{ traefik_dir }}/acme.json:/acme.json"
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
-      traefik.frontend.rule: "Host:{{ traefik_api_url }}"
-      traefik.docker.network: "web"
-      traefik.port: "8080"
       traefik.enable: "true"
+      traefik.http.routers.traefik.rule: "Host(`{{ traefik_api_url }}`)"
+      traefik.http.routers.traefik.entrypoints: "websecure"
+      traefik.http.routers.traefik.service: "api@internal"
+      traefik.http.routers.traefik.middlewares: "auth"
+      traefik.http.middlewares.auth.basicauth.users: "{{ traefik_api_user }}:{{ traefik_api_password | password_hash('blowfish','1234567890123456789012') }}"
     env:
       GANDIV5_API_KEY: "{{ gandi_api_key }}"
