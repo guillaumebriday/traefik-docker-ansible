@@ -1,0 +1,13 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: ibiqlik/action-yamllint@master
+        with:
+          file_or_dir: .
+          config_file: .yamllint.yml

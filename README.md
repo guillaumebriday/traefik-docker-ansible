@@ -1,5 +1,7 @@
 # Ansible: Multiple applications with Traefik 2.x and Docker
 
+![](https://github.com/guillaumebriday/traefik-docker-ansible/workflows/Lint/badge.svg)
+
 This is an [Ansible](https://www.ansible.com) playbook to install multiple applications on a single Ubuntu server with [Docker](https://www.docker.com) and [Traefik 2.x](https://traefik.io) updated with [Watchtower](https://github.com/v2tec/watchtower).
 
 ## Requirements
